@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:multi_language_app/home_page.dart';
+import 'package:multi_language_app/translations.dart';
 
-void main() {
+void main() async {
+  
+  WidgetsFlutterBinding.ensureInitialized();
+  await translations.init('en');
   runApp(MyApp());
 }
 
@@ -15,6 +20,13 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      localizationsDelegates: [GlobalMaterialLocalizations.delegate, GlobalWidgetsLocalizations.delegate],
+      // supportedLocales: translations.supportedLocales(),
+      supportedLocales: [
+        Locale("fa", "IR"),
+        Locale("en", "US"),
+        Locale("fr", "FR"),
+      ],
       home: HomePage(),
     );
   }
