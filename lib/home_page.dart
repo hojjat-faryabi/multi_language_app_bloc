@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:multi_language_app/translations.dart';
+import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'bloc/language_bloc.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -20,6 +24,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
+    final _langBloc = context.bloc<LanguageBloc>();
+
+
     return Scaffold(
         body: SafeArea(
       child: Column(
@@ -54,6 +62,7 @@ class _HomePageState extends State<HomePage> {
                 RaisedButton(
                   onPressed: () async {
                     await translations.setNewLanguage("fa");
+                    _langBloc.add(LANGUAGES.FA);
                     setState(() {});
                   },
                   child: Text("fa"),
@@ -61,6 +70,7 @@ class _HomePageState extends State<HomePage> {
                 RaisedButton(
                   onPressed: () async {
                     await translations.setNewLanguage("fr");
+                    _langBloc.add(LANGUAGES.FR);
                     setState(() {});
                   },
                   child: Text("fr"),
@@ -68,6 +78,7 @@ class _HomePageState extends State<HomePage> {
                 RaisedButton(
                   onPressed: () async {
                     await translations.setNewLanguage("en");
+                    _langBloc.add(LANGUAGES.EN);
                     setState(() {});
                   },
                   child: Text("en"),
