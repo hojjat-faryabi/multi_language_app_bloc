@@ -8,7 +8,10 @@ import 'package:multi_language_app/translations.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await translations.init('en');
-  runApp(MyApp());
+  runApp(BlocProvider(
+    create: (context) => LanguageBloc(),
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,11 +19,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    LanguageBloc lb = LanguageBloc();
-
-
     return BlocBuilder<LanguageBloc, String>(
-      bloc: lb,
+      bloc: context.bloc<LanguageBloc>(),
       builder: (context, state) => MaterialApp(
         title: 'Multi Language App',
         theme: ThemeData(
@@ -30,10 +30,7 @@ class MyApp extends StatelessWidget {
         localizationsDelegates: [GlobalMaterialLocalizations.delegate, GlobalWidgetsLocalizations.delegate],
         supportedLocales: translations.supportedLocales(),
         locale: Locale(state, ''),
-        home: BlocProvider(
-          create: (context) => lb,
-          child: HomePage(),
-        ),
+        home: HomePage()
       ),
     );
   }
