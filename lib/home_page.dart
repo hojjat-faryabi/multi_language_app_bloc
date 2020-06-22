@@ -24,9 +24,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     final _langBloc = context.bloc<LanguageBloc>();
-
 
     return Scaffold(
         body: SafeArea(
