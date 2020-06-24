@@ -18,6 +18,10 @@ class GlobalTranslations {
     return (_localizedValues == null || _localizedValues[key] == null) ? '** $key not found' : _localizedValues[key];
   }
 
+  Map<String, dynamic> translateObject(String objectKey){
+    return (_localizedValues == null || _localizedValues[objectKey] == null) ? '** $objectKey not found' : _localizedValues[objectKey];
+  }
+
   get currentLanguage => _locale == null ? '' : _locale.languageCode;
 
   get locale => _locale;

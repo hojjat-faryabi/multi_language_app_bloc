@@ -1,5 +1,9 @@
 {
   "title" : "c'est un test",
   "content" : "la section de contenu n'est pas vide :)",
-  "name" : "FRANÇAIS"
+  "name" : "FRANÇAIS",
+  "object_test" : {
+    "test1" : "1",
+    "test2" : "2"
+  }
 }

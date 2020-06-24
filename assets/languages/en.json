@@ -1,5 +1,9 @@
 {
   "title" : "this is a test",
   "content" : "content section is not enpety :)",
-  "name" : "english"
+  "name" : "english",
+  "object_test" : {
+    "test1" : "1",
+    "test2" : "2"
+  }
 }

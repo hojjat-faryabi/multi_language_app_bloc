@@ -24,6 +24,10 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
+    print(translations.translateObject("object_test"));
+
+
     final _langBloc = context.bloc<LanguageBloc>();
 
     return Scaffold(
